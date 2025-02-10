@@ -19,6 +19,7 @@ class Worker(QThread):
 
     def run(self):
         global CHECK_STATE_TIMEOUT
+        time.sleep(1)
         while True:
             if ex.get_state() != 'cooking':
                 self.reload_signal.emit()

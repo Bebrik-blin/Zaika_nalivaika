@@ -5,11 +5,13 @@ import time
 import settings
 
 
-MQTT_HOST = 'srv2.clusterfly.ru'
-MQTT_PORT = 9992
+MQTT_HOST = 'm1.wqtt.ru'
+MQTT_PORT = 12110
 MQTT_CLIENT_ID = 'fjnbnroitb'
-MQTT_USER = 'user_8202830b'
-MQTT_PSWD = '9yNtqFkHysRSE'
+
+USE_PSWD = True
+MQTT_USER = 'u_GTRZWP'
+MQTT_PSWD = 'nKeOD18W'
 
 # MQTT_PREFIX = 'user_8202830b/'
 MQTT_STATE_TOPIC = "user_8202830b/state"
@@ -20,7 +22,8 @@ MQTT_TO_CASE_TOPIC = 'user_8202830b/to_case'
 class MqttHelper:
     def __init__(self):
         self.client = mqtt_client.Client()
-        self.client.username_pw_set(MQTT_USER, MQTT_PSWD)
+        if USE_PSWD:
+            self.client.username_pw_set(MQTT_USER, MQTT_PSWD)
         self.client.on_connect = self.on_connect
         self.client.connect(MQTT_HOST, MQTT_PORT)
         self.client.tls_set()

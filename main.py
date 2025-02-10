@@ -15,6 +15,8 @@ import setup_screen
 import mqtt
 
 
+ALL_STATES = ['waiting', 'cooking', 'service_mode', 'issuance', 'setup']
+
 state = 'setup'
 ex = None
 close_window_before_load = False
@@ -111,7 +113,10 @@ def close(*args, **kwargs):
 def chainge_state_by_mqtt(new_state):
     global state
     if new_state != state:
-        state = new_state
+        for i in ALL_STATES:
+            if i in new_state:
+                state = i
+        # state = new_state
         print(state)
 
 

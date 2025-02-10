@@ -8,7 +8,7 @@ from service_mode_ui import Ui_MainWindow
 import settings
 
 
-CONSOLE_COMMAND_PREFIX = 'root@Наливатор:~# '
+CONSOLE_COMMAND_PREFIX = 'root@Лимонадный_автомат:~# '
 EXIT_COMAND = 'exit'
 
 CHECK_STATE_AND_MQTT_MESEGES_TIMEOUT = 0.5
@@ -24,6 +24,7 @@ class Worker(QThread):
 
     def run(self):
         global CHECK_STATE_TIMEOUT
+        time.sleep(1)
         while True:
             if ex.get_state() != 'service_mode':
                 self.reload_signal.emit()

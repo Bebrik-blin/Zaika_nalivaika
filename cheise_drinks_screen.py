@@ -26,6 +26,7 @@ class Worker(QThread):
 
     def run(self):
         global CHECK_STATE_TIMEOUT
+        time.sleep(1)
         while True:
             if ex.get_state() != 'waiting':
                 self.reload_signal.emit()
@@ -112,8 +113,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.thread = Worker()
         self.thread.reload_signal.connect(self.reload_if_state_changed)
-        self.thread.start()
         print('init cheise_drinks')
+        self.thread.start()
 
     def resize(self, *args):
         if settings.RESIZE_INTERFEISE:
