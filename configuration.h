@@ -1,17 +1,17 @@
 /* change it with your ssid-password */
-const char* ssid = "D-Link";
+const char* ssid = "";
 const char* password = "";
 /* this is the IP of PC/raspberry where you installed MQTT Server
   on Wins use "ipconfig"
   on Linux use "ifconfig" to get its IP address */
-const char* mqtt_server = "192.168.0.146";
+const char* mqtt_server = "";
 
-#define MQTT_SERVER_PORT 1883
+#define MQTT_SERVER_PORT 12110
 
 // пароль mqtt
 #define USE_MQTT_PSWD 1
-#define MQTT_USER "admin" 
-#define MQTT_PSWD "12321" 
+#define MQTT_USER "" 
+#define MQTT_PSWD "" 
 #define MQTT_DEVICE_ID "MY-ESP32-ВРЕ11-TEST" 
 
 /* topics */
@@ -61,20 +61,20 @@ const int GLASES_SENSORS_PINS[] = {13, 12, 14, 27};
 /* ----------------------углы---------------------- */
 //диск
 // Положения диска для выдачи
-const int16_t DISK_STEPPER_POSITIONS_TO_ISSUANCE[] = {450, 200, 10, 300};
+const int16_t DISK_STEPPER_POSITIONS_TO_ISSUANCE[] = {-400, -800, -1200, -1500};
 
 //ПОЛОЖЕНИЕ ДИСКА ВО ВРЕМЯ РОЗЛИВА
 #define DISK_POSITION_DURING_FILLING 0
 
 // Положение сервы в режиме ожидания
-#define SERVO_HOME_VALUE 1
+#define SERVO_HOME_VALUE 200
 
 // Положения сервы для розлива
-const uint8_t SERVO_VALUES_OVER_GLASES[] = {0, 50, 100, 150};
+const uint8_t SERVO_VALUES_OVER_GLASES[] = {15, 60, 110, 155};
 
 
 //Ожидание окончания извлечения наполненого стакана
-#define GLASS_REMOVAL_DELAY 4000
+#define GLASS_REMOVAL_DELAY 2000
 
 
 // ускорения помп

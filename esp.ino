@@ -130,6 +130,7 @@ void send_state(){
 #include <setup_state.h>
 #include<issuance_state.h>
 #include <cooking_state.h>
+#include <service_mode_state.h>
 
 
 void receivedCallback(char* topic, byte* payload, unsigned int length) {
@@ -161,6 +162,8 @@ void receivedCallback(char* topic, byte* payload, unsigned int length) {
     send_state();
   } else if(state == WAITING_ST){
     on_nessage_in_waiting_state(mesage);
+  } else if(state == SERVICE_MODE_ST){
+    on_nessage_in_service_dode_state(mesage);
   }
 }
 
